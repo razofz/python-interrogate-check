@@ -27,6 +27,22 @@ inputs:
     description: 'Generate a `shields.io` status badge (an SVG image) in at a given file or directory.'
     required: false
     default: '.'
+  ignore-nested-classes:
+    description: 'Ignore nested functions and methods.'
+    required: false
+    default: 'false'
+  ignore-private:
+    description: 'Ignore private classes, methods, and functions starting with two underscores.'
+    required: false
+    default: 'false'
+  ignore-semiprivate:
+    description: 'Ignore semiprivate classes, methods, and functions starting with a single underscore.'
+    required: false
+    default: 'false'
+  ignore-magic:
+    description: 'Ignore all magic methods of classes.'
+    required: false
+    default: 'false'
 outputs:
   output:
     description: 'The output of interrogate.'
@@ -41,3 +57,7 @@ runs:
     # - ${{ inputs.ignore-init-method }}
     # - ${{ inputs.ignore-init-module }}
     - ${{ inputs.badge-location }}
+    - ${{ inputs.ignore-nested-classes }}
+    - ${{ inputs.ignore-private }}
+    - ${{ inputs.ignore-semiprivate }}
+    - ${{ inputs.ignore-magic }}
