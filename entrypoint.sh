@@ -1,5 +1,5 @@
-#!/bin/sh
-set -eax
+#!/bin/bash
+set -ea
 
 interrogate --version
 
@@ -10,6 +10,7 @@ if [[ ${6} == true ]]; then FLAG=$FLAG's' ; fi
 if [[ ${7} == true ]]; then FLAG=$FLAG'm' ; fi
 if [[ ${FLAG} ]]; then FLAG=" -${FLAG}" ; fi
 CMD="interrogate --fail-under $2 --generate-badge $3 $1 $FLAG"
+echo $CMD
 
 if $CMD | grep -q 'PASSED'; then
     $CMD
